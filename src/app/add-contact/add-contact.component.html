@@ -4,63 +4,62 @@
 			<h1 class="text-center text-danger m-4">Add Contact</h1>
 			
 			<p style="text-align: justify;">A contact management system records interactions between a company and its customers or prospects, supply chain partners, or other contacts. Call date tracking, notes files, follow-up reminders, birthday or anniversary date reminders, and other mechanisms to give systematic means to begin and track engagement over time are common functions. The act of keeping, organizing, and managing information about your customers, prospects, and sales leads is known as contact management. In its most basic form, you may manage your contact data with an address book or an Excel or Google spreadsheet that includes entries for everyone with whom you do business. </p>
-			
+			<!-- <h1>{{contact|json}}</h1> -->
 			</div>
 	</div>
 
 	<div class="container contactContainer">
-
+<form action="">
 		<div class="row">
 			<div class="col-6">
 				<form class="contactForm">
 					<div class="mb-3">
+						<label for="contactId" class="form-label">Enter Contact Id</label>
+						<input [(ngModel)]="contact.id" name="contactId"  type="text" class="form-control" id="contactId" >
+
 					  <label for="contactName" class="form-label">Enter Contact Name</label>
-					  <input type="text" class="form-control" id="contactName" >
+					  <input [(ngModel)]="contact.name" name="contactName"  type="text" class="form-control" id="contactName" >
 					
 					<div class="mb-3">
 					  <label for="photoURL" class="form-label">Enter Contact Photo URL</label>
-					  <input type="text" class="form-control" id="photoURL">
+					  <input [(ngModel)]="contact.photo" name="contactPhoto" type="text" class="form-control" id="photoURL">
 					</div>
 
 					<div class="mb-3">
 						<label for="Email" class="form-label">Enter Contact Email</label>
-						<input type="email" class="form-control" id="Email">
+						<input [(ngModel)]="contact.email" name="contactEmail" type="email" class="form-control" id="Email">
 					  </div>
 
 					  <div class="mb-3">
 						<label for="contactNumber" class="form-label">Enter Contact Number</label>
-						<input type="number" class="form-control" id="contactNumber">
+						<input  [(ngModel)]="contact.number" name="contactNumber"type="number" class="form-control" id="contactNumber">
 					  </div>
-					  <div class="mb-3">
-						<label for="photoURL" class="form-label">Enter Contact Photo URL</label>
-						<input type="text" class="form-control" id="photoURL">
-					  </div>
+					
 					  <div class="mb-3">
 						<label for="contactCompany" class="form-label">Enter Contact Company Name</label>
-						<input type="text" class="form-control" id="contactCompany">
+						<input  [(ngModel)]="contact.company" name="contactCompany"type="text" class="form-control" id="contactCompany">
 					  </div>
 					  <div class="mb-3">
 						<label for="contactTitle" class="form-label">Enter Contact Title</label>
-						<input type="text" class="form-control" id="contactTitle">
+						<input [(ngModel)]="contact.title" name="contactTitle" type="text" class="form-control" id="contactTitle">
 					  </div>
 					  <div class="mb-3">
-						<select class="form-control">
+						<select  [(ngModel)]="contact.groupId" name="groupId" class="form-control">
 							<option value="" selected hidden disabled>Select</option>
-							<option value="">Family</option>
-							<option value="">Friends</option>
-							<option value="">Company</option>
+							<option value={{group.id}} *ngFor="let group of allGroups">{{group.name}}</option>
+							
 						</select>
 					  </div>
 				
-					<input type="submit" value="create" class="btn btn-success mt-4">
+					<input (click)="addContact()" type="button" value="create" class="btn btn-success mt-4">
 				<a routerLink="/" class="btn btn-danger mx-5 mt-4">Go Back</a>
 					</div>
 					</form>
 			</div>
-			<div class="col-6">
-
+			<div class="col-6 img">
+				<img [src]="contact.photo" id="addContactImg" alt="">
 			</div>
 		</div>
-
+	</form>
 	</div>
 </div>

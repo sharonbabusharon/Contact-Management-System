@@ -1,1 +1,51 @@
-<p>view-contact works!</p>
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<h1 class="text-center text-danger m-4">View Contact</h1>
+			
+			<p style="text-align: justify;">A contact management system records interactions between a company and its customers or prospects, supply chain partners, or other contacts. Call date tracking, notes files, follow-up reminders, birthday or anniversary date reminders, and other mechanisms to give systematic means to begin and track engagement over time are common functions. The act of keeping, organizing, and managing information about your customers, prospects, and sales leads is known as contact management. In its most basic form, you may manage your contact data with an address book or an Excel or Google spreadsheet that includes entries for everyone with whom you do business. </p>
+			
+			</div>
+	</div>
+
+	<div class="container contactContainer">
+
+		<div class="row">
+			<div class="col-6">
+				<h1>Contact Details</h1>
+				<div class="card mt-5" >
+
+					<div class="card-body p-4">
+						
+					  <ul class="list-group "style="align-items:left">
+						
+						<li class="list-group-items">
+							Name: {{contact.name}}
+						</li>
+						<li class="list-group-items">
+							Email: {{contact.email}}
+						</li>
+						<li class="list-group-items">
+							Mobile: {{contact.number}} 
+						</li>
+						<li class="list-group-items">
+							Company Name: {{contact.company}} 
+						</li>
+						<li class="list-group-items">
+							Title: {{contact.title}} 
+						</li>
+						<li class="list-group-items">
+							Group: {{groupName}}
+						</li>
+					  </ul>
+					</div>
+				  </div>
+				  <a routerLink="/" class="btn btn-success mt-4">Go Back</a>
+			</div>
+			<div class="col-6">
+				<img [src]="contact.photo" id="addContactImg" alt="">
+			</div>
+		</div>
+
+	</div>
+</div>

@@ -1,1 +1,65 @@
-<p>update-contact works!</p>
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<h1 class="text-center text-danger m-4">Update Contact</h1>
+			
+			<p style="text-align: justify;">A contact management system records interactions between a company and its customers or prospects, supply chain partners, or other contacts. Call date tracking, notes files, follow-up reminders, birthday or anniversary date reminders, and other mechanisms to give systematic means to begin and track engagement over time are common functions. The act of keeping, organizing, and managing information about your customers, prospects, and sales leads is known as contact management. In its most basic form, you may manage your contact data with an address book or an Excel or Google spreadsheet that includes entries for everyone with whom you do business. </p>
+			<!-- <h1>{{contactDetails|json}}</h1> -->
+			</div>
+	</div>
+
+	<div class="container contactContainer">
+<form action="">
+		<div class="row">
+			<div class="col-6">
+				<form class="contactForm">
+					<div class="mb-3">
+						<label for="contactId" class="form-label">Enter Contact Id</label>
+						<input [(ngModel)]="contactDetails.id" name="contactId"  type="text" class="form-control" id="contactId" >
+
+					  <label for="contactName" class="form-label">Enter Contact Name</label>
+					  <input [(ngModel)]="contactDetails.name"  name="contactName"  type="text" class="form-control" id="contactName" >
+					
+					<div class="mb-3">
+					  <label for="photoURL" class="form-label">Enter Contact Photo URL</label>
+					  <input  [(ngModel)]="contactDetails.photo" name="contactPhoto" type="text" class="form-control" id="photoURL">
+					</div>
+
+					<div class="mb-3">
+						<label for="Email" class="form-label">Enter Contact Email</label>
+						<input [(ngModel)]="contactDetails.email" name="contactEmail" type="email" class="form-control" id="Email">
+					  </div>
+
+					  <div class="mb-3">
+						<label for="contactNumber" class="form-label">Enter Contact Number</label>
+						<input   [(ngModel)]="contactDetails.number" name="contactNumber"type="number" class="form-control" id="contactNumber">
+					  </div>
+					
+					  <div class="mb-3">
+						<label for="contactCompany" class="form-label">Enter Contact Company Name</label>
+						<input  [(ngModel)]="contactDetails.company"  name="contactCompany"type="text" class="form-control" id="contactCompany">
+					  </div>
+					  <div class="mb-3">
+						<label for="contactTitle" class="form-label">Enter Contact Title</label>
+						<input  [(ngModel)]="contactDetails.title" name="contactTitle" type="text" class="form-control" id="contactTitle">
+					  </div>
+					  <div class="mb-3">
+						<select  name="groupId"  class="form-control"  [(ngModel)]="contactDetails.groupId">
+							<option value="name" selected hidden disabled>Select</option>
+							<option value={{group.id}} *ngFor="let group of groupDetails" >{{group.name}}</option>
+							
+						</select>
+					  </div>
+				
+					<input  type="button" (click)="updateContact()" value="update" class="btn btn-success mt-4">
+				<a routerLink="/" class="btn btn-danger mx-5 mt-4">Go Back</a>
+					</div>
+					</form>
+			</div>
+			<div class="col-6 img">
+				<img [src]="contactDetails.photo"  id="addContactImg" alt="">
+			</div>
+		</div>
+	</form>
+	</div>
+</div>

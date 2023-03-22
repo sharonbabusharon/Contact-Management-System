@@ -2,14 +2,48 @@
 	margin-top: 70px;
 }
 .cardcontainer{
-	margin-top: 100px;
+	margin-top: 60px;
+	margin-bottom: 30px;
+	
 }
 .logo{
 	width: 200px;
-	margin-left: 50%;
+	margin-left: 35%;
 	padding-top: 10PX;
+	border-radius: 7%;
 }
 .card{
-	margin-right: 50%;
-	margin-bottom: 50px;
+		margin-bottom: 50px;
+		margin-right: 90px;
+		margin-left: -60px;	
+}
+h1{
+	font-size: 60px;
+	padding: 30px;
+}
+.cardcontainer{
+	background-color:	 rgb(155, 181, 207);
+	;
+}
+.date p{
+	text-align: right;
+	padding: 10px;
+	position: relative;
+	animation-direction:alternate-reverse;
+	transform: translateX(100%);
+	animation: mymove 15s linear infinite;
+}
+@keyframes mymove{
+	0%{
+		transform: translateX(100%);
+	}
+	100%{
+		transform: translateX(-100%);
+	}
+}
+.main{
+	background-color:#D6E4E5;
+}
+p{
+	line-height: 2;
 }

@@ -1,7 +1,20 @@
+
+
+<div class="container-fluid main">
+<!-- 
+//login date -->
+<div class="date">
+<p>{{logindate | date:"medium"}}</p>
+</div>
+
+
+
+
+
 <div class="container">
 	<div class="row">
 		<div class="col">
-			<h1 class="text-center text-danger m-4">Conatact Management System</h1>
+			<h1 class="text-center text-danger mt-3 mb-5">Contact Management System</h1>
 			
 			<p style="text-align: justify;">A contact management system records interactions between a company and its customers or prospects, supply chain partners, or other contacts. Call date tracking, notes files, follow-up reminders, birthday or anniversary date reminders, and other mechanisms to give systematic means to begin and track engagement over time are common functions. The act of keeping, organizing, and managing information about your customers, prospects, and sales leads is known as contact management. In its most basic form, you may manage your contact data with an address book or an Excel or Google spreadsheet that includes entries for everyone with whom you do business. </p>
 			<a routerLink="/contact/add" class="btn btn-primary" style="float: right;">
@@ -10,12 +23,12 @@
 				<i class="fa-solid fa-user-plus"></i>&nbsp; Add Contact</a>
 			</div>
 	</div>
+</div>
 
-
-
+<div class="container">
 	<div class="contactSearch row">
 		<div class="col-6">
-				<input type="text" placeholder="search contact" class="form-control">
+				<input (keyup)="search($event)" type="text" placeholder="search contact" class="form-control">
 		</div>
 		<div class="col-6">
 			
@@ -23,31 +36,35 @@
 		
 		</div>
 	</div>
+</div>
 
-
-
+<div class="container">
+<div class="cardcontainer">
+	<div class="row">
+	
+<div class="col-md-6"*ngFor="let contact of allContacts | filter: searchKey:'name'">
 
 
 	<div class="cardcontainer">
-		<div class="row bg-primary">
-			<div class="col-6">
-				<img class="logo" src="https://cdn-icons-png.flaticon.com/512/1870/1870166.png" alt="">
+		<div class="row">
+			<div class="content col-md-6" >
+				<img class="logo" [src]="contact.photo" alt="">
 					</div>
 
 					
-					<div class="col-6">
+					<div class="content col-md-6">
 					<div class="card mt-5" >
 
 					<div class="card-body p-4">
 					  <ul class="list-group "style="align-items:left">
 						<li class="list-group-items">
-							Name: Arun <a routerLink="/contact/view/:contactID"style="float:right"><span style=" color: rgb(182, 36, 7);"><i class="fa-solid fa-eye"></i></span></a>
+							Name: {{contact.name}} <a routerLink="/contact/view/{{contact.id}}"style="float:right"><span style=" color: rgb(182, 36, 7);"><i class="fa-solid fa-eye"></i></span></a>
 						</li>
 						<li class="list-group-items">
-							Email: arun@gmail.com <a routerLink="contact/update"style="float:right"><span style=" color: rgb(182, 36, 7); "><i class="fa-solid fa-pen"></i></span></a>
+							Email: {{contact.email}} <a routerLink="/contact/update/{{contact.id}}"style="float:right"><span style=" color: rgb(182, 36, 7); "><i class="fa-solid fa-pen"></i></span></a>
 						</li>
 						<li class="list-group-items">
-							Mobile: 9076443765 <button class="btn" style="float: right;  border: none; padding: 0px;"><span style=" color: rgb(182, 36, 7);"><i class="fa-solid fa-trash"></i></span></button>
+							Mobile: {{contact.number}} <button (click)="deleteContact(contact.id)" style="float: right;  border: none; padding: 0px;"><span style=" color: rgb(182, 36, 7);"><i  class="fa-solid fa-trash"></i></span></button>
 						</li>
 					  </ul>
 					</div>
@@ -56,6 +73,9 @@
 		</div>
 	</div>
 
+</div>
+</div>
 
-
+</div>
+</div>
 </div>

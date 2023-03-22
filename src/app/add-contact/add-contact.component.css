@@ -5,4 +5,17 @@
 .contactForm{
 	border: solid 2px rgb(15, 87, 120);
 	padding: 35px;
+	border-radius: 4%;
+}
+#addContactImg{
+	
+	margin-left: 90px;
+	border-radius: 50%;
+}
+
+.img{
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
